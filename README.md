@@ -81,6 +81,76 @@ Its creation was driven by the need to evaluate LLM responsiveness and determine
 *   **`coach_ui.py`**: Provides the user-friendly chat interface, demonstrating how to use the `CoachService` in a web application context.
 *   **`services/grounding/linkup_retriever.py`**: Implements the crucial step of fetching evidence from academic sources to validate AI recommendations, enhancing trustworthiness.
 
+
+## API keys
+Below is a description of each API key listed in your configuration, along with the rationale for its use within the project.
+
+**OPENAI_API_KEY**
+
+- **Purpose:** Grants access to OpenAI's suite of powerful language models (such as o4-mini, gpt4o-mini, etc) through their API.
+- **Rationale:** Used by WearM.ai to generate natural language responses, analyse text, and provide AI-driven coaching and biomechanical insights. The flexibility to use different LLMs (including OpenAI) ensures robust, state-of-the-art language understanding and generation capabilities.
+
+---
+
+**WEAVIATE_URL** & **WEAVIATE_API_KEY**
+
+- **Purpose:**  
+  - `WEAVIATE_URL`: Specifies the endpoint (URL) for your Weaviate vector database instance.
+  - `WEAVIATE_API_KEY`: Authenticates requests to your Weaviate instance, which is a cloud-native vector database for storing and retrieving embeddings and structured data.
+- **Rationale:** Weaviate is used as the knowledge base backend, enabling fast semantic search and retrieval of contextually relevant information (e.g., sports medicine facts, biomechanics literature) to ground AI responses. The API key and URL are required for secure and correct access to your knowledge base.
+
+---
+
+**VOYAGEAI_API_KEY** (For Weaviate vectorization if using Voyage)
+
+- **Purpose:** Provides access to VoyageAI's embedding models, which can generate vector representations of text for semantic search.
+- **Rationale:** If configured, WearM.ai can use VoyageAI's models to vectorize (embed) knowledge base documents before storing them in Weaviate. This can improve search quality or offer an alternative to other embedding providers.
+
+---
+
+**GEMINI_API_KEY**
+
+- **Purpose:** Grants access to Google's Gemini LLM API.
+- **Rationale:** Enables WearM.ai to use Gemini as an alternative or complement to other LLMs (like OpenAI or Anthropic). This supports model diversity, allowing you to leverage strengths of different providers for specific tasks or fallback scenarios.
+
+---
+
+**ANTHROPIC_API_KEY**
+
+- **Purpose:** Provides access to Anthropic's Claude language models via their API.
+- **Rationale:** Allows WearM.ai to utilize Anthropic's models (Claude) for generating responses, supporting a multi-LLM strategy for reliability, flexibility, and potentially improved output quality in certain contexts.
+
+---
+
+**LINKUP_API_KEY**
+
+- **Purpose:** Authenticates access to the Linkup service, which retrieves and grounds information from academic literature and scientific sources.
+- **Rationale:** Used to fact-check and support AI-generated advice with evidence from peer-reviewed research, enhancing the trustworthiness and scientific validity of the coaching recommendations provided by WearM.ai.
+
+---
+
+## Summary Table
+
+| API Key              | Service/Provider | Purpose & Rationale                                                                                      |
+|----------------------|------------------|----------------------------------------------------------------------------------------------------------|
+| OPENAI_API_KEY       | OpenAI           | Access to OpenAI's LLMs for text generation, analysis, and coaching logic                                |
+| WEAVIATE_URL         | Weaviate         | Endpoint for the vector database storing knowledge base embeddings                                       |
+| WEAVIATE_API_KEY     | Weaviate         | Authentication for secure access to Weaviate instance                                                    |
+| VOYAGEAI_API_KEY     | VoyageAI         | Enables use of VoyageAI's embedding models for vectorization in Weaviate                                 |
+| GEMINI_API_KEY       | Google           | Access to Gemini LLMs for alternative/complementary AI responses                                         |
+| ANTHROPIC_API_KEY    | Anthropic        | Access to Claude LLMs, supporting multi-LLM flexibility                                                  |
+| LINKUP_API_KEY       | Linkup           | Retrieves academic evidence to ground and fact-check AI advice                                           |
+
+---
+
+## Rationale for Multi-API Approach
+
+- **Flexibility:** Multiple LLM providers (OpenAI, Gemini, Anthropic) allow you to select the best model for each task and provide redundancy if one service is unavailable.
+- **Best-in-Class Retrieval:** Weaviate, combined with advanced embedding models (OpenAI, VoyageAI), ensures fast, accurate, and context-aware knowledge retrieval.
+- **Trustworthiness:** Linkup integration grounds AI advice in real scientific evidence, increasing user trust and safety.
+- **Scalability & Modularity:** Each API serves a distinct role, making the system modular, scalable, and adaptable to future improvements or provider changes
+
+
 ## 🚀 Getting Started: Let's Get Running! 🚀
 
 Ready to bring your AI coach to life? Follow these steps:
