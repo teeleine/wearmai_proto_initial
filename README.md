@@ -4,6 +4,13 @@ Welcome to the WearM.ai codebase! This project aims to be a sophisticated AI ass
 
 Built on a robust Django backend, WearM.ai integrates powerful Language Models (like Gemini, Claude, OpenAI via `infrastructure/llm_clients`), utilizes Weaviate for intelligent knowledge retrieval, incorporates grounding with academic sources via Linkup, and features a user-friendly Streamlit app for direct interaction with the AI coach.
 
+## 🧠 Project Context – Initial Back-End Prototype
+This repository contains the first iteration of the back-end system designed for a coaching interface that translates running sensor data into actionable feedback using Large Language Models (LLMs). Developed in Python, this prototype primarily integrates the Gemini API but remains configurable to support other LLMs as well.
+
+The purpose of this initial prototype was to create a minimum viable product (MVP) that allowed for live testing and interaction with the system. It enabled early-stage exploration of how LLMs interpret and respond to sensor data in real-time scenarios. This version served as a foundational step in understanding how effectively an LLM could bridge the gap between raw sensor input and user-friendly coaching feedback, with a simplified UI included for testing purposes.
+
+Its creation was driven by the need to evaluate LLM responsiveness and determine the baseline performance, capabilities, and potential optimization areas for future versions of the system.
+
 ## 🎉 Features Galore! 🎉
 
 *   **Deep Biomechanical Analysis:** Ingests and models highly detailed time-series data for various exercises (running, walking, jumping, squats, lunges, landing), including joint angles (Pelvis, Hip, Knee, Ankle), muscle forces (Soleus, Tibialis, Gastrocnemius), and gait phases (see the intricate `core/models.py`).
